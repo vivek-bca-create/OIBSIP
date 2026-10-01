@@ -3,20 +3,19 @@ import requests
 
 
 def fetch_weather_data(city_name, api_key):
-    """Fetches real-time weather data from OpenWeatherMap API."""
+    """Fetches real-time weather data from OpenWeatherMap API using dynamic keys."""
     base_url = "https://openweathermap.org"
     parameters = {"q": city_name, "appid": api_key, "units": "metric"}
 
     try:
         response = requests.get(base_url, params=parameters, timeout=10)
-        # HTTP status framework verification
         if response.status_code == 200:
             return response.json()
         elif response.status_code == 404:
             print("Error: City not found. Please verify the name.")
             return None
         elif response.status_code == 401:
-            print("Error: Invalid API Key. Please check your credentials.")
+            print("Error: Invalid or inactive API Key. Please check your credentials.")
             return None
         else:
             print(f"Error: Server responded with status code {response.status_code}")
@@ -50,15 +49,15 @@ def display_weather(data):
 
 
 def main():
-    """Main application loop execution structure."""
-    # Integrated OpenWeatherMap API Key from user configuration
-    api_key = "d6bd8cc6927be8378f50734e151f864b"
+    """Main application loop with safe dynamic credential input framework."""
+    print("--- Welcome to the Secure Basic Weather Application ---")
 
-    if api_key == "YOUR_API_KEY_" + "HERE":
-        print("Configuration Missing: Please update your real OpenWeatherMap API key in the script.")
+    # Asking for dynamic key input to keep repository secure from leaks
+    api_key = input("Please enter your OpenWeatherMap API Key: ").strip()
+
+    if not api_key:
+        print("Configuration Error: API Key cannot be empty.")
         sys.exit(1)
-
-    print("--- Welcome to the Basic Weather Application ---")
 
     while True:
         city_name = input("Enter city name (or type 'exit' to quit): ").strip()
