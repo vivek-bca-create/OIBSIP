@@ -8,9 +8,9 @@ This repository contains the projects completed during the Python Programming in
 - **Domain:** Python Programming
 
 ## Completed Tasks
-1. **Task 2: BMI Calculator (Beginner Tier)**
+1. **Task 1: Voice Assistant (Beginner Tier)**
+   - Utilizes pyttsx3 for localized system speech synthesis and conditional control structures to parse user commands dynamically.
+2. **Task 2: BMI Calculator (Beginner Tier)**
    - Formulates health data parsing mechanisms using systematic metric calculations.
-2. **Task 3: Random Password Generator (Beginner Tier)**
+3. **Task 3: Random Password Generator (Beginner Tier)**
    - Constructs security framework sequences using advanced random selection loops.
-3. **Task 4: Basic Weather Application (Beginner Tier)**
-   - Executes real-time meteorological data collection using API integration frameworks.
